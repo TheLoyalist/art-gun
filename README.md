@@ -21,7 +21,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Docs are in progress: https://www.inkpad.io/FLdkG9lXoo
 
 ## Development
 
