@@ -1,5 +1,3 @@
-require 'active_model'
-
 module Artgun
   class Order
     include ActiveModel::Model
@@ -56,6 +54,10 @@ module Artgun
 
     def attributes
       (self.class.attrs + %w(type time method mode status status_code)).inject({}){|h,k| h[k.to_s] = nil; h}
+    end
+
+    def as_json opts = {include: :items}
+      super opts
     end
   end
 end
