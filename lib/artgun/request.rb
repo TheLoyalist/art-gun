@@ -14,6 +14,7 @@ module Artgun
       data: json,
       signature: signature
     )
-    http.request(request)
+    resp = http.request(request)
+    Artgun::Response.new.from_json resp.body
   end
 end

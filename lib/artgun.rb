@@ -7,3 +7,5 @@ require "artgun/order_item_attribute"
 require "artgun/order_item"
 require "artgun/order"
 
+require "artgun/response"
+require "artgun/request"
