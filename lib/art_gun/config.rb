@@ -1,4 +1,4 @@
-module Artgun
+module ArtGun
   @api_key       = ENV['ARTGUN_API_KEY']
   @api_secret    = ENV['ARTGUN_API_SECRET']
   @api_endpoint  = ENV['ARTGUN_API_ENDPOINT']

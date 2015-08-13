@@ -5,10 +5,10 @@ require "bundler/setup"
 require 'dotenv'
 Dotenv.load
 
-require "artgun"
+require "art-gun"
 
-puts "Artgun.test_mode? => #{Artgun.test_mode?}"
-puts "Artgun.config_valid? => #{Artgun.config_valid?}"
+puts "ArtGun.test_mode? => #{ArtGun.test_mode?}"
+puts "ArtGun.config_valid? => #{ArtGun.config_valid?}"
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.

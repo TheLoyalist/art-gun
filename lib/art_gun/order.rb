@@ -1,4 +1,4 @@
-module Artgun
+module ArtGun
   class Order
     include ActiveModel::Model
     include ActiveModel::Serializers::JSON
@@ -37,7 +37,7 @@ module Artgun
     end
 
     def mode
-      Artgun.test_mode? ? 'debug' : 'auto'
+      ArtGun.test_mode? ? 'debug' : 'auto'
     end
 
     def status

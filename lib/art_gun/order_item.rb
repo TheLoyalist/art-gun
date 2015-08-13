@@ -1,4 +1,4 @@
-module Artgun
+module ArtGun
   class OrderItem
     include ActiveModel::Model
     include ActiveModel::Serializers::JSON

@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-RSpec.describe Artgun::Order do
+RSpec.describe ArtGun::Order do
 
   def o attrs = {}
-    Artgun::Order.new attrs
+    ArtGun::Order.new attrs
   end
 
   context 'attributes' do
