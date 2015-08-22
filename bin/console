@@ -6,6 +6,7 @@ require 'dotenv'
 Dotenv.load
 
 require "art-gun"
+include ArtGun
 
 puts "ArtGun.test_mode? => #{ArtGun.test_mode?}"
 puts "ArtGun.config_valid? => #{ArtGun.config_valid?}"
