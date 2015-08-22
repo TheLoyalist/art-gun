@@ -3,7 +3,7 @@ module ArtGun
     include ActiveModel::Model
     include ActiveModel::Serializers::JSON
 
-    @@attrs = %i(code message receipt_id res time url xid)
+    @@attrs = %i(code message receipt_id res time url xid raw)
     cattr_reader :attrs
     attr_accessor *attrs
 

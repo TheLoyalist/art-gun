@@ -15,6 +15,8 @@ module ArtGun
       signature: signature
     )
     resp = http.request(request)
-    ArtGun::Response.new.from_json resp.body
+    ag_resp = ArtGun::Response.new.from_json resp.body
+    ag_resp.raw = resp.body
+    ag_resp
   end
 end
