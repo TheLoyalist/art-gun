@@ -22,5 +22,20 @@ FactoryGirl.define do
     name 'T-Shirt'
     sku  '10133604'
     quantity 3
+
+    after :build do |item, evaluator|
+      if item.attrs.nil?
+        item.attrs = build_list :order_item_attribute, 1
+      end
+    end
+  end
+
+  factory :order_item_attribute do
+    type 'DigitalPrint'
+    location 'CF'
+    thumbnail 'http://example.com/thumb'
+    preview 'http://example.com/preview'
+    file_url 'http://example.com/file'
+    file_extension 'png'
   end
 end

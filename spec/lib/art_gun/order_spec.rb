@@ -47,7 +47,7 @@ RSpec.describe Order do
     it 'ensures associated items are validated too' do
       item = OrderItem.new(name: nil)
       order = build :order, items: [item]
-      order.valid?
+      expect(order).to be_invalid
       expect(order.items.first.errors.size).to be > 0
     end
   end
