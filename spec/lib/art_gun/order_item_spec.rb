@@ -30,5 +30,13 @@ RSpec.describe OrderItem do
       expect(item.attrs.first.errors.size).to be > 0
     end
   end
+
+  context '#as_json' do
+    it 'checks #attrs is not directly included, but via #attributes' do
+      json = build(:order_item).as_json
+      expect(json).to_not have_key 'attrs'
+      expect(json).to have_key 'attributes'
+    end
+  end
 end
 
