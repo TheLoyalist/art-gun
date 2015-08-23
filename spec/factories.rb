@@ -10,5 +10,17 @@ FactoryGirl.define do
     shipping_state 'NY'
     shipping_country 'US'
     shipping_zipcode '10010'
+
+    after :build do |order, evaluator|
+      if order.items.nil?
+        order.items = build_list :order_item, 1
+      end
+    end
+  end
+
+  factory :order_item do
+    name 'T-Shirt'
+    sku  '10133604'
+    quantity 3
   end
 end

@@ -8,7 +8,7 @@ require 'art-gun'
 
 include ArtGun
 
-Dir['./spec/factories/**/*.rb'].each {|f| require f}
+require_relative 'factories.rb'
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
