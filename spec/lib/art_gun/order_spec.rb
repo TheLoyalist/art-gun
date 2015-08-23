@@ -28,8 +28,7 @@ RSpec.describe Order do
     end
 
     it 'is valid with minimal attrs set' do
-      # order = o(xid: 'AD2832A', items_quantity: 3, shipping_carrier: 'DHL', shipping_priority: 'GROUND', shipping_name: 'Lars', shipping_address1: '33 W 17th St', shipping_city: 'New York', shipping_state: 'NY', shipping_country: 'US', shipping_zipcode: '10010')
-      order = o(attributes_for :order)
+      order = build :order
       expect(order).to be_valid
     end
 
@@ -37,6 +36,19 @@ RSpec.describe Order do
       order = o(shipping_address1: 'x'*41)
       order.valid?
       expect(order.errors[:shipping_address1].size).to be(1)
+    end
+
+    it 'ensures at least one item is given' do
+      order = build :order, items: []
+      expect(order).to be_invalid
+      expect(order.errors[:items].size).to be 1
+    end
+
+    it 'ensures associated items are validated too' do
+      item = OrderItem.new(name: nil)
+      order = build :order, items: [item]
+      order.valid?
+      expect(order.items.first.errors.size).to be > 0
     end
   end
 end

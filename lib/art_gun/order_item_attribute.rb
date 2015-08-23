@@ -1,5 +1,5 @@
 module ArtGun
-  class OrderItem
+  class OrderItemAttribute
     include ActiveModel::Model
     include ActiveModel::Serializers::JSON
 

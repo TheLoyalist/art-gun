@@ -22,6 +22,11 @@ module ArtGun
       length: {maximum: 15}
     validates :shipping_email, :billing_email,
       length: {maximum: 65}
+    validates :items,
+      length: {minimum: 1}
+    validate do
+      errors.add :items, "One or more items are not valid" if items and items.any? &:invalid?
+    end
 
 
     def type
