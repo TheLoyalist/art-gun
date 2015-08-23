@@ -61,8 +61,10 @@ module ArtGun
       (self.class.attrs + %w(type time method mode status status_code)).inject({}){|h,k| h[k.to_s] = nil; h}
     end
 
-    def as_json opts = {include: :items}
-      super opts
+    def as_json opts = {}
+      hash = super opts
+      hash['items'] = items.map(&:as_json)
+      hash
     end
   end
 end

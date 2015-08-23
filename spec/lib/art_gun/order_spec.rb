@@ -51,5 +51,12 @@ RSpec.describe Order do
       expect(order.items.first.errors.size).to be > 0
     end
   end
+
+  context '#as_json' do
+    it 'checks a complete path to be available' do
+      json = build(:order).as_json
+      expect(json['items'][0]['attributes'][0]['file_extension']).to eq 'png'
+    end
+  end
 end
 

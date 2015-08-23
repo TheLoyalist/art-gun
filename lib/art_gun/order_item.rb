@@ -19,9 +19,9 @@ module ArtGun
       self.class.attrs.inject({}){|h,k| h[k.to_s] = nil; h}
     end
 
-    def as_json opts = {include: :attrs}
+    def as_json opts = {}
       hash = super opts
-      hash['attributes'] = hash.delete('attrs') # to avoid name conflict in model
+      hash['attributes'] = attrs.map(&:as_json) # to avoid name conflict in model
       hash
     end
   end
