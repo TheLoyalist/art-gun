@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-RSpec.describe ArtGun::Order do
+RSpec.describe Order do
 
   def o attrs = {}
-    ArtGun::Order.new attrs
+    Order.new attrs
   end
 
   context 'attributes' do
@@ -28,7 +28,8 @@ RSpec.describe ArtGun::Order do
     end
 
     it 'is valid with minimal attrs set' do
-      order = o(xid: 'AD2832A', items_quantity: 3, shipping_carrier: 'DHL', shipping_priority: 'GROUND', shipping_name: 'Lars', shipping_address1: '33 W 17th St', shipping_city: 'New York', shipping_state: 'NY', shipping_country: 'US', shipping_zipcode: '10010')
+      # order = o(xid: 'AD2832A', items_quantity: 3, shipping_carrier: 'DHL', shipping_priority: 'GROUND', shipping_name: 'Lars', shipping_address1: '33 W 17th St', shipping_city: 'New York', shipping_state: 'NY', shipping_country: 'US', shipping_zipcode: '10010')
+      order = o(attributes_for :order)
       expect(order).to be_valid
     end
 
