@@ -22,7 +22,10 @@ module ArtGun
     def as_json opts = {except: :attrs}
       hash = super opts
       hash['attributes'] = attrs.map(&:as_json) # to avoid name conflict in model
-      hash
+      hash.inject({}) do |h, (k,v)|
+        h[k] = v unless v.nil?
+        h
+      end
     end
   end
 end

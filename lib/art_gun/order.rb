@@ -64,7 +64,10 @@ module ArtGun
     def as_json opts = {}
       hash = super opts
       hash['items'] = items.map(&:as_json)
-      hash
+      hash.inject({}) do |h, (k,v)|
+        h[k] = v unless v.nil?
+        h
+      end
     end
   end
 end

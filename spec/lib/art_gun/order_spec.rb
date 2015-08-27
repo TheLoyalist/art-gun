@@ -57,6 +57,11 @@ RSpec.describe Order do
       json = build(:order).as_json
       expect(json['items'][0]['attributes'][0]['file_extension']).to eq 'png'
     end
+
+    it 'does not include fields with nil values' do
+      json = build(:order, xid: nil).as_json
+      expect(json).to_not have_key('xid')
+    end
   end
 end
 

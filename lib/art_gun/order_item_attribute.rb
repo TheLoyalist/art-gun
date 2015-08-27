@@ -18,5 +18,13 @@ module ArtGun
     def attributes
       self.class.attrs.inject({}){|h,k| h[k.to_s] = nil; h}
     end
+
+    def as_json opts = {}
+      hash = super opts
+      hash.inject({}) do |h, (k,v)|
+        h[k] = v unless v.nil?
+        h
+      end
+    end
   end
 end
