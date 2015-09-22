@@ -9,7 +9,7 @@ module ArtGun
 
     validates :type, :location, :thumbnail, :preview, presence: true
     validates :type, inclusion: {in: %w(DigitalPrint HeatTransfer HangTag)}
-    validates :location, inclusion: {in: %w(CF FB)}, if: ->(a) { a.type == 'DigitalPrint' }
+    validates :location, inclusion: {in: %w(CF FB LS RS)}, if: ->(a) { a.type == 'DigitalPrint' }
     validates :location, inclusion: {in: %w(FNL)}, if: ->(a) { a.type == 'HeatTransfer' }
     validates :location, inclusion: {in: %w(FN)}, if: ->(a) { a.type == 'HangTag' }
     validates :file_url, :file_extension, presence: true, if: ->(a) { a.type == 'DigitalPrint' }
