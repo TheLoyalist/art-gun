@@ -6,6 +6,7 @@ module ArtGun
   def self.request data
     uri = URI.parse ArtGun.api_endpoint
     http = Net::HTTP.new uri.host, uri.port
+    http.use_ssl = (uri.scheme == 'https')
     request = Net::HTTP::Post.new uri.request_uri
     json = data.to_json
     signature = Digest::SHA1.hexdigest(ArtGun.api_secret + ArtGun.api_key + json)
